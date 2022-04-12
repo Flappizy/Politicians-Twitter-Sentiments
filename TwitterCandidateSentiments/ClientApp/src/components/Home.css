@@ -1,0 +1,30 @@
+﻿.over {
+    font-size: 5em;
+    position: relative;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+.img-size{
+    width: 200px;
+    height: 200px;
+}
+
+.card-width{
+    width: 18rem;
+}
+
+.title {
+    color: #483d8b;
+}
+
+.header-bg-color {
+    background-color: #483d8b;
+    color: white;
+}
