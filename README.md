@@ -14,7 +14,7 @@ This repository contains how ReactJs and ASP.NET Core 6.0 can be used to make a 
 
 <p>Restore all nuget packages</p>
 <pre>
-<code>dotnet restore</code></pre>
+<code>dotnet restore </code></pre>
 
 <p>Install node modules & run builds</p>
 <pre>
