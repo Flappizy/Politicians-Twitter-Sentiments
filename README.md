@@ -24,6 +24,13 @@ This repository contains how ReactJs and ASP.NET Core 6.0 can be used to make a 
 <pre>
 <code>npm install</code></pre>
 
+<p>Change directory</p>
+<pre>
+<code>cd Politicians-Twitter-Sentiments/TwitterCandidateSentiments/appsettings.json</code></pre>
+<p>Put your Twitter API Key/secrets in the TwitterSetting section of the file</p>
+<p>Put in your connection string</p>
+
+
 # Running instructions
 <p>Change directory</p>
 <pre>
