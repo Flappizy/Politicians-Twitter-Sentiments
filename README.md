@@ -1,5 +1,5 @@
 # Introduction
-This repository contains how ReactJs and ASP.NET Core 6.0 can be used to make a tool that allows you to monitor ehat people are saying about a few selected Nigerian presidential candidates on Twitter. The purpose of this is to see if Twitter opinions really matter when it comes to the Nigerian elections.
+This repository contains how ReactJs and ASP.NET Core 6.0 can be used to make a tool that allows you to monitor what people are saying about a few selected Nigerian presidential candidates on Twitter. The purpose of this is to see if Twitter opinions really matter when it comes to the Nigerian elections.
 
 # Installation
 [Download and install the .NET Core SDK](https://dotnet.microsoft.com/download)
