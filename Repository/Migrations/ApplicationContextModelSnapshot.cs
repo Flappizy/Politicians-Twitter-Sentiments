@@ -2,8 +2,8 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Repository;
 
 #nullable disable
@@ -18,23 +18,23 @@ namespace Repository.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.2")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("Entities.Models.PresidentialCandidateSearchTerm", b =>
                 {
                     b.Property<int>("PresidentialCandidateSearchTermId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("PresidentialCandidateSearchTermId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PresidentialCandidateSearchTermId"), 1L, 1);
 
                     b.Property<string>("CandidateBase64Pic")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CandidateSearchTerm")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("NumberOfNegativeTweets")
                         .HasColumnType("bigint");
@@ -46,10 +46,10 @@ namespace Repository.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("OverAllPublicSentimentOfCandidate")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("OverAllSentimentProbability")
-                        .HasColumnType("double precision");
+                        .HasColumnType("float");
 
                     b.Property<long>("TotalNumberOfTweetsAssesed")
                         .HasColumnType("bigint");
@@ -63,25 +63,25 @@ namespace Repository.Migrations
                 {
                     b.Property<Guid>("TweetId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("BestClassName")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("BestClassProbability")
                         .HasColumnType("real");
 
                     b.Property<int>("PresidentialCandidateSearchTermId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<float>("ProbabilityOfBeingPositive")
                         .HasColumnType("real");
 
                     b.Property<bool>("SentimentHasBeenPerformed")
-                        .HasColumnType("boolean");
+                        .HasColumnType("bit");
 
                     b.Property<string>("TweetText")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TweetId");
 

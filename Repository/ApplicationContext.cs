@@ -38,10 +38,19 @@ namespace Repository
     {
         public ApplicationContext CreateDbContext(string[] args)
         {
-            IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(@Directory.GetCurrentDirectory() + "/../API/appsettings.json").Build();
+            IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(@Directory.GetCurrentDirectory() + "/../TwitterCandidateSentiments/appsettings.json")
+                .Build();
             var builder = new DbContextOptionsBuilder<ApplicationContext>();
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
-            builder.UseNpgsql(connectionString);
+            string connectionString = null!;
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+            {
+                connectionString = configuration.GetConnectionString("ProdConnection");
+            }
+            else
+            {
+                connectionString = configuration.GetConnectionString("DefaultConnection");
+            }
+            builder.UseSqlServer(connectionString);
             return new ApplicationContext(builder.Options);
         }
     }

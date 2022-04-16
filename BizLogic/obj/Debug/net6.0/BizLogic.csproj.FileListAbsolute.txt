@@ -144,12 +144,12 @@ C:\Users\Hp\source\repos\PublicOpinionsOnNigeriaPresidentialCandidates\BizLogic\
 C:\Users\Hp\source\repos\PublicOpinionsOnNigeriaPresidentialCandidates\BizLogic\obj\Debug\net6.0\ref\BizLogic.dll
 C:\Users\Hp\source\repos\PublicOpinionsOnNigeriaPresidentialCandidates\BizLogic\obj\Debug\net6.0\BizLogic.pdb
 C:\Users\Hp\source\repos\PublicOpinionsOnNigeriaPresidentialCandidates\BizLogic\obj\Debug\net6.0\BizLogic.genruntimeconfig.cache
-C:\Users\Hp\source\repos\TwitterCandidateSentiments\BizLogic\bin\Debug\net6.0\testhost.exe
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\BizLogic\bin\Debug\net6.0\testhost.dll
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\BizLogic\bin\Debug\net6.0\Contracts.deps.json
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\BizLogic\bin\Debug\net6.0\Contracts.runtimeconfig.json
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\BizLogic\bin\Debug\net6.0\Entities.deps.json
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\BizLogic\bin\Debug\net6.0\Entities.runtimeconfig.json
+C:\Users\Hp\source\repos\TwitterCandidateSentiments\BizLogic\bin\Debug\net6.0\testhost.exe
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\BizLogic\bin\Debug\net6.0\Microsoft.TestPlatform.PlatformAbstractions.dll
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\BizLogic\bin\Debug\net6.0\BizLogic.deps.json
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\BizLogic\bin\Debug\net6.0\BizLogic.runtimeconfig.json

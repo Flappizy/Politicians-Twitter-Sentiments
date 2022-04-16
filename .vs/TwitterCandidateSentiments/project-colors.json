@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a4107028-fd4b-438a-b631-0a668fd2ffa4": {
+      "ProjectGuid": "a4107028-fd4b-438a-b631-0a668fd2ffa4",
+      "DisplayName": "UnitTests",
+      "ColorIndex": 0
+    },
+    "77739772-e2c5-4424-8914-e52a6e37cbde": {
+      "ProjectGuid": "77739772-e2c5-4424-8914-e52a6e37cbde",
+      "DisplayName": "TwitterCandidateSentiments",
+      "ColorIndex": 1
+    },
+    "cc450105-551e-4eff-bf12-b239ee6c281d": {
+      "ProjectGuid": "cc450105-551e-4eff-bf12-b239ee6c281d",
+      "DisplayName": "BizLogic",
+      "ColorIndex": 2
+    },
+    "a75694a8-5b8b-41b6-bc7a-02cf2fc10090": {
+      "ProjectGuid": "a75694a8-5b8b-41b6-bc7a-02cf2fc10090",
+      "DisplayName": "Repository",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 4
+}

@@ -1,13 +1,5 @@
 ﻿using Entities.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GroupDocs.Classification;
-using Entities.DTOs;
-using GroupDocs.Classification.Exceptions;
-using BizLogic.AppClasses;
 using Contracts.Sentiment;
 using System.Runtime.CompilerServices;
 

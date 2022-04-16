@@ -140,10 +140,10 @@ C:\Users\Hp\source\repos\PublicOpinionsOnNigeriaPresidentialCandidates\Contracts
 C:\Users\Hp\source\repos\PublicOpinionsOnNigeriaPresidentialCandidates\Contracts\obj\Debug\net6.0\ref\Contracts.dll
 C:\Users\Hp\source\repos\PublicOpinionsOnNigeriaPresidentialCandidates\Contracts\obj\Debug\net6.0\Contracts.pdb
 C:\Users\Hp\source\repos\PublicOpinionsOnNigeriaPresidentialCandidates\Contracts\obj\Debug\net6.0\Contracts.genruntimeconfig.cache
-C:\Users\Hp\source\repos\TwitterCandidateSentiments\Contracts\bin\Debug\net6.0\testhost.exe
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\Contracts\bin\Debug\net6.0\testhost.dll
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\Contracts\bin\Debug\net6.0\Entities.deps.json
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\Contracts\bin\Debug\net6.0\Entities.runtimeconfig.json
+C:\Users\Hp\source\repos\TwitterCandidateSentiments\Contracts\bin\Debug\net6.0\testhost.exe
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\Contracts\bin\Debug\net6.0\Microsoft.TestPlatform.PlatformAbstractions.dll
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\Contracts\bin\Debug\net6.0\Contracts.deps.json
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\Contracts\bin\Debug\net6.0\Contracts.runtimeconfig.json

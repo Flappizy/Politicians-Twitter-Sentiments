@@ -7,8 +7,8 @@ using Repository;
 using Hangfire;
 using Contracts;
 using Contracts.Twitter;
-using Hangfire.PostgreSql;
 using TwitterCandidateSentiments.Services;
+using Repository.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
@@ -24,14 +24,25 @@ services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 services.AddEndpointsApiExplorer();
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+string connectionString = null!;
 
-JobStorage.Current = new PostgreSqlStorage(connectionString);
+if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+{
+    connectionString = builder.Configuration.GetConnectionString("ProdConnection");
+}
+else
+{
+    connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+}
+
+
+//JobStorage.Current = new PostgreSqlStorage(connectionString);
+GlobalConfiguration.Configuration.UseSqlServerStorage(connectionString);
 services.AddHangfire(configuration => configuration
                .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
                .UseSimpleAssemblyNameTypeSerializer()
                .UseRecommendedSerializerSettings()
-               .UsePostgreSqlStorage(connectionString));
+               .UseSqlServerStorage(connectionString));
 
 services.AddCors(options =>
 {
@@ -45,7 +56,7 @@ services.AddCors(options =>
 
 services.AddHangfireServer();
 
-services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(connectionString));
+services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connectionString));
 services.AddDatabaseDeveloperPageExceptionFilter();
 
 TwitterSettings twitterSettings = new TwitterSettings();
@@ -65,7 +76,7 @@ services.AddTransient<ITweetSearch, TweetSearch>();
 services.AddTransient<ISentiment, Sentiment>();
 services.AddTransient<ILogicCombinationService, LogicCombinationService>();
 services.AddScoped<IOpinionsRepo, OpinionsRepo>();
-services.AddTransient<LogicRunnerForGetTweetsAndSentimentsAndStorage>();
+services.AddTransient<LogicRunner>();
 
 var app = builder.Build();
 
@@ -82,7 +93,7 @@ app.UseRouting();
 
 app.UseCors(_policyName);
 
-RecurringJob.AddOrUpdate<LogicRunnerForGetTweetsAndSentimentsAndStorage>(x => x.GetTweetsPerformSentimentAndStorageMethodRunner(),
+RecurringJob.AddOrUpdate<LogicRunner>(x => x.GetTweetsPerformSentimentAndStorage(),
    "*/20 * * * *");
 
 
@@ -93,6 +104,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
 
-app.MapFallbackToFile("index.html"); ;
+app.MapFallbackToFile("index.html");
+
+SeedData.EnsurePopulated(app).Wait();
 
 app.Run();
