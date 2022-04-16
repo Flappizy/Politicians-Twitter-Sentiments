@@ -34,6 +34,6 @@ This repository contains how ReactJs and ASP.NET Core 6.0 can be used to make a 
 <p>Change directory</p>
 <pre>
 <code>cd Politicians-Twitter-Sentiments/UnitTestsXunit</code></pre>
-<<pre>
+<pre>
 <code>dotnet test</code></pre>
 
