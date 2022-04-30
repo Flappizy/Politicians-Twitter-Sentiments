@@ -17,6 +17,7 @@ namespace Entities.Models
         public long NumberOfPositiveTweets { get; set; }
         public string? OverAllPublicSentimentOfCandidate { get; set; } 
         public double OverAllSentimentProbability { get; set; }
-        public string? CandidateBase64Pic { get; set; }
+        public byte[] CandidatePicFile { get; set; }
+        public DateTimeOffset LatestDateAndTimeOfLastCollectedTweet { get; set; }
     }
 }

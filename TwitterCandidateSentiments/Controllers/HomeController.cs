@@ -30,16 +30,17 @@ namespace TwitterCandidateSentiments.Controllers
                 return StatusCode(StatusCodes.Status400BadRequest, new { Error = "Please Search term can not be null" });
             }
 
-            var doesCandidateName = await _candidateRepo.CheckIfCandidateExists(candidate);
+            var candidateNameInDb = await _candidateRepo.CheckIfCandidateExists(candidate);
 
-            if (doesCandidateName == null)
+            if (candidateNameInDb == null)
             {
                 return StatusCode(StatusCodes.Status400BadRequest, new { Error = "Candidate Details does not exist within Database" });
             }
 
+            var candidateSentimentDetails1 = await _repo.GetCandidateSentimentDetailsSoFar(candidateNameInDb);
             try
             {
-                var candidateSentimentDetails = await _repo.GetCandidateSentimentDetailsSoFar(doesCandidateName);
+                var candidateSentimentDetails = await _repo.GetCandidateSentimentDetailsSoFar(candidateNameInDb);
                 return Ok(candidateSentimentDetails);
             }
             catch (Exception)

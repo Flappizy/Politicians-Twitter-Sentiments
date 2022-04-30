@@ -14,14 +14,14 @@ namespace TwitterCandidateSentiments.Services
     {
 
         private ICandidates _candidateRepo;
-        private ITweetExistence _tweetExistence;
+        private ITweetValidity _tweetExistence;
         private IOpinionsRepo _repo;
         private ISentiment _sentimentAnalyzer;
         private TwitterSettings _twitterSettings;
 
 
         public LogicRunner(ICandidates candidateRepo, 
-            ITweetExistence tweetExistence, IOpinionsRepo repo, ISentiment sentimentAnalyzer, 
+            ITweetValidity tweetExistence, IOpinionsRepo repo, ISentiment sentimentAnalyzer, 
             IOptions<TwitterSettings> twitterSettings)
         {
             _candidateRepo = candidateRepo;
@@ -31,7 +31,7 @@ namespace TwitterCandidateSentiments.Services
             _twitterSettings = twitterSettings.Value;
         }
 
-        [AutomaticRetry(Attempts = 4)]
+        [AutomaticRetry(Attempts = 0)]
         public  async Task GetTweetsPerformSentimentAndStorage()
         {
             var candidates = await _candidateRepo.GetCandidatesAsync();
@@ -54,7 +54,7 @@ namespace TwitterCandidateSentiments.Services
                 tweets.AddRange(tweetsTempStorage);
             }
 
-            await _sentimentAnalyzer.GetTweetsSentiment(tweets, candidates);                    
+            _sentimentAnalyzer.GetTweetsSentiment(tweets, candidates);                    
         }
     }
 }

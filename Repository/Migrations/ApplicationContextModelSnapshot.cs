@@ -17,7 +17,7 @@ namespace Repository.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.2")
+                .HasAnnotation("ProductVersion", "6.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -30,11 +30,15 @@ namespace Repository.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PresidentialCandidateSearchTermId"), 1L, 1);
 
-                    b.Property<string>("CandidateBase64Pic")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("CandidatePicFile")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("CandidateSearchTerm")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTimeOffset>("LatestDateAndTimeOfLastCollectedTweet")
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<long>("NumberOfNegativeTweets")
                         .HasColumnType("bigint");

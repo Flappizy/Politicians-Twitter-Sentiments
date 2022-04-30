@@ -69,7 +69,7 @@ services.Configure<TwitterSettings>(builder.Configuration.GetSection("TwitterSet
 services.AddTransient<ISentimentClassifier, SentimentClassifierWrappedClass>();
 services.AddTransient<ISentimentForTweetWith100CharsOrLess, SentimentForTweetWith100CharsOrLess>();
 services.AddTransient<ISentimentForTweetWithMoreThan100Chars, SentimentForTweetWithMoreThan100Chars>();
-services.AddTransient<ITweetExistence, TweetExistence>();
+services.AddTransient<ITweetValidity, TweetValidity>();
 services.AddSingleton<ICustomTwitterClient>(twitterClient);
 services.AddScoped<ICandidates, Candidates>();
 services.AddTransient<ITweetSearch, TweetSearch>();
@@ -98,7 +98,7 @@ RecurringJob.AddOrUpdate<LogicRunner>(x => x.GetTweetsPerformSentimentAndStorage
 
 
 app.MapControllers();
-app.UseHangfireDashboard();
+app.UseHangfireDashboard("/hangfire");
 
 app.MapControllerRoute(
     name: "default",

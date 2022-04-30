@@ -17,10 +17,10 @@ namespace BizLogic
 {
     public class TweetSearch : ITweetSearch
     {
-        private ITweetExistence _tweetExistence;
+        private ITweetValidity _tweetExistence;
         private ICustomTwitterClient _twitterClient;
         
-        public TweetSearch(ITweetExistence tweetExistence, ICustomTwitterClient twitterClient)
+        public TweetSearch(ITweetValidity tweetExistence, ICustomTwitterClient twitterClient)
         {
             _tweetExistence = tweetExistence;
             _twitterClient = twitterClient;
@@ -75,8 +75,9 @@ namespace BizLogic
                 //the returned collection, then it means the tweet/string exists within the temporary storage
                 var tweetExistenceInTempStorage = tempStorage.Select(t => t.Contains(twoThirdOfTweet));
 
-                if (tweet.Text.StartsWith("RT") || await _tweetExistence.DoesTweetExist(tweet.Text) ||
-                tweetExistenceInTempStorage.Contains(true) || tweetIds.Contains(tweet.Id))
+                if (tweet.Text.StartsWith("RT") || 
+                    _tweetExistence.IsTweetCreatedTimeLesserThanTimeOfLastCollectedTweet(tweet.CreatedAt, candidate.LatestDateAndTimeOfLastCollectedTweet) ||
+                        tweetExistenceInTempStorage.Contains(true) || tweetIds.Contains(tweet.Id))
                 {
                     continue;
                 }
@@ -88,8 +89,11 @@ namespace BizLogic
                     TweetText = tweet.Text.ToLower(),
                     PresidentialCandidateSearchTermId = candidate.PresidentialCandidateSearchTermId
                 });
+                if (tweet.CreatedAt > candidate.LatestDateAndTimeOfLastCollectedTweet)
+                {
+                    candidate.LatestDateAndTimeOfLastCollectedTweet = tweet.CreatedAt;
+                }
             }
-
             return tweets;
         }
     }

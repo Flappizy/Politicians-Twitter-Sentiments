@@ -10,6 +10,6 @@ namespace Contracts.Sentiment
 {
     public interface ISentiment
     {
-        Task GetTweetsSentiment(IEnumerable<Tweet> tweets, List<PresidentialCandidateSearchTerm> canidates);
+        void GetTweetsSentiment(IEnumerable<Tweet> tweets, List<PresidentialCandidateSearchTerm> canidates);
     }
 }

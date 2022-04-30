@@ -13,9 +13,10 @@ namespace Entities.DTOs
         public double OverAllSentimentProbability { get; set; }
         public string CandidateName { get; set; } = null!;
         public string CandidateBase64Pic { get; set; } = null!;
+        public byte[] CandidateBytesDataPic { get; set; } = null!;
         public long AmountOfPositveTweet { get; set; }
         public long AmountOfNegativeTweet { get; set; }
         public long AmountOfNeutralTweet { get; set; }
-        public string CandidateTheme { get; set; }
+        public string CandidateTheme { get; set; } = null!;
     }
 }

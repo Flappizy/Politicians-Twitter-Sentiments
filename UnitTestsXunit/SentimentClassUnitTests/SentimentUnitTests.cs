@@ -94,7 +94,7 @@ namespace UnitTests.SentimentClassUnitTests
             var candidates = SetUpFakeCandidates();
 
             //Act
-            await sentimentClass.GetTweetsSentiment(tweets, candidates);
+            sentimentClass.GetTweetsSentiment(tweets, candidates);
             var sentiments = sentimentClass.Sentiments;
 
             //Assert
@@ -119,10 +119,9 @@ namespace UnitTests.SentimentClassUnitTests
                 var tweets = SetUpListOfTweets();
                 int expectedResultCount = tweets.Count;
                 var candidates = await context.GetTrackedCandidates();
-                var stubTweetExistenceRepo = new TweetExistence(context);
                 
                 //Act
-                await sentimentClass.GetTweetsSentiment(tweets, candidates);
+                sentimentClass.GetTweetsSentiment(tweets, candidates);
 
                 //Assert
                 context.Opinions.Count().ShouldEqual(expectedResultCount);
@@ -147,10 +146,9 @@ namespace UnitTests.SentimentClassUnitTests
                 Sentiment sentimentClass = new Sentiment(stubSentiment100orLess, stubSentimentMoreThan100, mockDbAccessOpininionTable);
                 var candidates = await context.GetTrackedCandidates();
                 var tweets = SetUpListOfTweets();
-                var stubTweetExistenceRepo = new TweetExistence(context);
 
                 //Act
-                await sentimentClass.GetTweetsSentiment(tweets, candidates);
+                sentimentClass.GetTweetsSentiment(tweets, candidates);
                 var actualCandidate = context.PresidentialCandidatesSearchTerms.First();
 
                 //Assert

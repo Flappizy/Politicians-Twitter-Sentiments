@@ -10,7 +10,7 @@ namespace Contracts.IRepository
 {
     public interface IOpinionsRepo
     {
-        Task SaveOpinions();
+        void SaveOpinions();
         Task<CandidateSentimentDTO> GetCandidateSentimentDetailsSoFar(string candidateName);
     }
 }

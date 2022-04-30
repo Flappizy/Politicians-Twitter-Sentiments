@@ -41,17 +41,17 @@ namespace UnitTests.TweetSearchClassUnitTests
             return fakeSearchV2Client;
         }
 
-        private ITweetExistence SetAllTweetExistenceToTrue()
+        private ITweetValidity SetAllTweetExistenceToTrue()
         {
             bool doesTweetExist = true;
-            ITweetExistence tweetExistence = new FakeTweetExistence(doesTweetExist);
+            ITweetValidity tweetExistence = new FakeTweetValidity(doesTweetExist);
             return tweetExistence;
         }
 
-        private ITweetExistence SetAllTweetExistenceToFalse()
+        private ITweetValidity SetAllTweetExistenceToFalse()
         {
             bool doesTweetExist = false;
-            ITweetExistence tweetExistence = new FakeTweetExistence(doesTweetExist);
+            ITweetValidity tweetExistence = new FakeTweetValidity(doesTweetExist);
             return tweetExistence;
         }
 
@@ -61,7 +61,7 @@ namespace UnitTests.TweetSearchClassUnitTests
             //Arrange
             FakeSearchV2Client stubSearchV2Client = GetNormalTweets();
             FakeTwitterSearchClient stubTwitterClient = new FakeTwitterSearchClient(stubSearchV2Client);
-            ITweetExistence stubTweetExistence = SetAllTweetExistenceToFalse();
+            ITweetValidity stubTweetExistence = SetAllTweetExistenceToFalse();
             TweetSearch tweetSearch = new TweetSearch(stubTweetExistence, stubTwitterClient);
             int expectedNumberOfTweetsResult = 9;
             PresidentialCandidateSearchTerm stubSearchTerm = new PresidentialCandidateSearchTerm
@@ -84,7 +84,7 @@ namespace UnitTests.TweetSearchClassUnitTests
             //Arrange
             FakeSearchV2Client stubSearchV2Client = GetRetweets();
             FakeTwitterSearchClient stubTwitterClient = new FakeTwitterSearchClient(stubSearchV2Client);
-            ITweetExistence stubTweetExistence = SetAllTweetExistenceToFalse();
+            ITweetValidity stubTweetExistence = SetAllTweetExistenceToFalse();
             TweetSearch tweetSearch = new TweetSearch(stubTweetExistence, stubTwitterClient);
             int expectedNumberOfTweetsResult = 0;
             PresidentialCandidateSearchTerm stubSearchTerm = new PresidentialCandidateSearchTerm
@@ -107,7 +107,7 @@ namespace UnitTests.TweetSearchClassUnitTests
             //Arrange
             FakeSearchV2Client stubSearchV2Client = GetDuplicates();
             FakeTwitterSearchClient stubTwitterClient = new FakeTwitterSearchClient(stubSearchV2Client);
-            ITweetExistence stubTweetExistence = SetAllTweetExistenceToFalse();
+            ITweetValidity stubTweetExistence = SetAllTweetExistenceToFalse();
             TweetSearch tweetSearch = new TweetSearch(stubTweetExistence, stubTwitterClient);
             int expectedNumberOfTweetsResult = 1;
             PresidentialCandidateSearchTerm stubSearchTerm = new PresidentialCandidateSearchTerm
@@ -130,7 +130,7 @@ namespace UnitTests.TweetSearchClassUnitTests
             //Arrange
             FakeSearchV2Client stubSearchV2Client = GetZeroTweet();
             FakeTwitterSearchClient stubTwitterClient = new FakeTwitterSearchClient(stubSearchV2Client);
-            ITweetExistence stubTweetExistence = SetAllTweetExistenceToFalse();
+            ITweetValidity stubTweetExistence = SetAllTweetExistenceToFalse();
             TweetSearch tweetSearch = new TweetSearch(stubTweetExistence, stubTwitterClient);
             IEnumerable<Tweet> expectedResult = null;
             PresidentialCandidateSearchTerm stubSearchTerm = new PresidentialCandidateSearchTerm
@@ -152,7 +152,7 @@ namespace UnitTests.TweetSearchClassUnitTests
             //Arrange
             FakeSearchV2Client stubSearchV2Client = GetNormalTweets();
             FakeTwitterSearchClient stubTwitterClient = new FakeTwitterSearchClient(stubSearchV2Client);
-            ITweetExistence stubTweetExistence = SetAllTweetExistenceToTrue();
+            ITweetValidity stubTweetExistence = SetAllTweetExistenceToTrue();
             TweetSearch tweetSearch = new TweetSearch(stubTweetExistence, stubTwitterClient);
             int expectedResult = 0;
             PresidentialCandidateSearchTerm stubSearchTerm = new PresidentialCandidateSearchTerm
@@ -175,7 +175,7 @@ namespace UnitTests.TweetSearchClassUnitTests
             //Arrange
             FakeSearchV2Client stubSearchV2Client = GetNormalTweets();
             FakeTwitterSearchClient stubTwitterClient = new FakeTwitterSearchClient(stubSearchV2Client);
-            ITweetExistence stubTweetExistence = SetAllTweetExistenceToFalse();
+            ITweetValidity stubTweetExistence = SetAllTweetExistenceToFalse();
             TweetSearch tweetSearch = new TweetSearch(stubTweetExistence, stubTwitterClient);
             int expectedResult = 9;
             PresidentialCandidateSearchTerm stubSearchTerm = new PresidentialCandidateSearchTerm

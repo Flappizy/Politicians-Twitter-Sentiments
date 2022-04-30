@@ -244,8 +244,6 @@ C:\Users\Hp\source\repos\TwitterCandidateSentiments\Repository\bin\Debug\net6.0\
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\Repository\bin\Debug\net6.0\Microsoft.TestPlatform.Utilities.dll
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\Repository\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.Common.dll
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\Repository\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Hp\source\repos\TwitterCandidateSentiments\Repository\bin\Debug\net6.0\Npgsql.dll
-C:\Users\Hp\source\repos\TwitterCandidateSentiments\Repository\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\Repository\bin\Debug\net6.0\NuGet.Frameworks.dll
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\Repository\bin\Debug\net6.0\Serilog.dll
 C:\Users\Hp\source\repos\TwitterCandidateSentiments\Repository\bin\Debug\net6.0\Serilog.AspNetCore.dll

@@ -14,11 +14,11 @@ namespace UnitTests.EFHelpers
         public static void SeedDatabaseDummyCandidates(this ApplicationContext context)
         {
             context.AddRange(
-                   new PresidentialCandidateSearchTerm { CandidateSearchTerm = "Tinubu" },
-                   new PresidentialCandidateSearchTerm { CandidateSearchTerm = "Peter Obi" },
-                   new PresidentialCandidateSearchTerm { CandidateSearchTerm = "Atiku" },
-                   new PresidentialCandidateSearchTerm { CandidateSearchTerm = "Bukola Saraki" },
-                   new PresidentialCandidateSearchTerm { CandidateSearchTerm = "Aminu Tambuwal" });
+                   new PresidentialCandidateSearchTerm { CandidateSearchTerm = "Tinubu", LatestDateAndTimeOfLastCollectedTweet = DateTimeOffset.Now, CandidatePicFile = new byte[] { 0, 0 } },
+                   new PresidentialCandidateSearchTerm { CandidateSearchTerm = "Peter Obi", LatestDateAndTimeOfLastCollectedTweet = DateTimeOffset.Now, CandidatePicFile = new byte[] { 0, 0 } },
+                   new PresidentialCandidateSearchTerm { CandidateSearchTerm = "Atiku", LatestDateAndTimeOfLastCollectedTweet = DateTimeOffset.Now, CandidatePicFile = new byte[] { 0, 0 } },
+                   new PresidentialCandidateSearchTerm { CandidateSearchTerm = "Bukola Saraki", LatestDateAndTimeOfLastCollectedTweet = DateTimeOffset.Now, CandidatePicFile = new byte[] { 0, 0 } },
+                   new PresidentialCandidateSearchTerm { CandidateSearchTerm = "Aminu Tambuwal", LatestDateAndTimeOfLastCollectedTweet = DateTimeOffset.Now, CandidatePicFile = new byte[] { 0, 0 } });
 
             context.SaveChanges();
         }

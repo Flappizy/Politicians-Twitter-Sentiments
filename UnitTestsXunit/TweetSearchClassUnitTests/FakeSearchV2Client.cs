@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Tweetinvi.Client.V2;
 using Tweetinvi.Iterators;
@@ -21,9 +18,9 @@ namespace UnitTests.TweetSearchClassUnitTests
         }
 
 
-        public async Task<SearchTweetsV2Response> SearchTweetsAsync(string query)
+        public Task<SearchTweetsV2Response> SearchTweetsAsync(string query)
         {
-            return new SearchTweetsV2Response
+            var tweetResponse = new SearchTweetsV2Response
             {
                 SearchMetadata = new SearchTweetsMetadataV2
                 {
@@ -46,6 +43,8 @@ namespace UnitTests.TweetSearchClassUnitTests
                     new TweetV2 { Text = "This is a fake tweet number 9", Id = "9"},
                 }
             };
+
+            return Task.FromResult(tweetResponse);
         }
 
         //This is the method in the third party library used by my production code

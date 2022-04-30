@@ -6,14 +6,7 @@ using Entities.Models;
 namespace Repository.Data
 {
     public class SeedData
-    {
-        public async static Task<string> ConvertToBase64(string filePath)
-        {
-            byte[] fileArray = await File.ReadAllBytesAsync(filePath);
-            string base64 = @String.Format("data:image/*;base64,{0}", Convert.ToBase64String(fileArray));
-            return base64;
-        }
-
+    {        
         public static async Task EnsurePopulated(IApplicationBuilder app)
         {
             ApplicationContext context = 
@@ -36,27 +29,27 @@ namespace Repository.Data
                     new PresidentialCandidateSearchTerm 
                     { 
                         CandidateSearchTerm = "tinubu", 
-                        CandidateBase64Pic = await ConvertToBase64(tinubuPicFilePath) 
+                        CandidatePicFile = await File.ReadAllBytesAsync(tinubuPicFilePath) 
                     },
                     new PresidentialCandidateSearchTerm 
                     { 
                         CandidateSearchTerm = "peter obi",
-                        CandidateBase64Pic = await ConvertToBase64(obiPicFilePath)
+                        CandidatePicFile = await File.ReadAllBytesAsync(obiPicFilePath)
                     },
                     new PresidentialCandidateSearchTerm 
                     { 
                         CandidateSearchTerm = "atiku",
-                        CandidateBase64Pic = await ConvertToBase64(atikuPicFilePath)
+                        CandidatePicFile = await File.ReadAllBytesAsync(atikuPicFilePath)
                     },
                     new PresidentialCandidateSearchTerm 
                     { 
                         CandidateSearchTerm = "bukola saraki",
-                        CandidateBase64Pic = await ConvertToBase64(sarakiPicFilePath)
+                        CandidatePicFile = await File.ReadAllBytesAsync(sarakiPicFilePath)
                     },
                     new PresidentialCandidateSearchTerm 
                     { 
                         CandidateSearchTerm = "yemi osinbajo",
-                        CandidateBase64Pic = await ConvertToBase64(osinbajoPicFilePath)
+                        CandidatePicFile = await File.ReadAllBytesAsync(osinbajoPicFilePath)
                     });
             }
             context.SaveChanges();

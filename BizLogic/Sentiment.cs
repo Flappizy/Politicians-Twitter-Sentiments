@@ -26,7 +26,7 @@ namespace BizLogic
             get { return sentiments; }
         }
 
-        public async Task GetTweetsSentiment(IEnumerable<Tweet> tweets, List<PresidentialCandidateSearchTerm> candidates)
+        public void GetTweetsSentiment(IEnumerable<Tweet> tweets, List<PresidentialCandidateSearchTerm> candidates)
         {
             foreach (var tweet in tweets)
             {
@@ -71,7 +71,7 @@ namespace BizLogic
             }
 
             var processedCandidates = CalculateCandidatesSentimentsProperties(sentiments, candidates);
-            await _repo.SaveOpinions();
+            _repo.SaveOpinions();
         }
 
 
